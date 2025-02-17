@@ -1,0 +1,66 @@
+{
+  "format": 1,
+  "restore": {
+    "/home/isaac/Documents/BYUI/2025/CSE_310_Applied_Programming/Battleship_Guesser/Battleship_Guesser.csproj": {}
+  },
+  "projects": {
+    "/home/isaac/Documents/BYUI/2025/CSE_310_Applied_Programming/Battleship_Guesser/Battleship_Guesser.csproj": {
+      "version": "1.0.0",
+      "restore": {
+        "projectUniqueName": "/home/isaac/Documents/BYUI/2025/CSE_310_Applied_Programming/Battleship_Guesser/Battleship_Guesser.csproj",
+        "projectName": "Battleship_Guesser",
+        "projectPath": "/home/isaac/Documents/BYUI/2025/CSE_310_Applied_Programming/Battleship_Guesser/Battleship_Guesser.csproj",
+        "packagesPath": "/home/isaac/.nuget/packages/",
+        "outputPath": "/home/isaac/Documents/BYUI/2025/CSE_310_Applied_Programming/Battleship_Guesser/obj/",
+        "projectStyle": "PackageReference",
+        "configFilePaths": [
+          "/home/isaac/.nuget/NuGet/NuGet.Config"
+        ],
+        "originalTargetFrameworks": [
+          "net8.0"
+        ],
+        "sources": {
+          "https://api.nuget.org/v3/index.json": {}
+        },
+        "frameworks": {
+          "net8.0": {
+            "targetAlias": "net8.0",
+            "projectReferences": {}
+          }
+        },
+        "warningProperties": {
+          "warnAsError": [
+            "NU1605"
+          ]
+        },
+        "restoreAuditProperties": {
+          "enableAudit": "true",
+          "auditLevel": "low",
+          "auditMode": "direct"
+        }
+      },
+      "frameworks": {
+        "net8.0": {
+          "targetAlias": "net8.0",
+          "imports": [
+            "net461",
+            "net462",
+            "net47",
+            "net471",
+            "net472",
+            "net48",
+            "net481"
+          ],
+          "assetTargetFallback": true,
+          "warn": true,
+          "frameworkReferences": {
+            "Microsoft.NETCore.App": {
+              "privateAssets": "all"
+            }
+          },
+          "runtimeIdentifierGraphPath": "/usr/share/dotnet/sdk/8.0.406/PortableRuntimeIdentifierGraph.json"
+        }
+      }
+    }
+  }
+}

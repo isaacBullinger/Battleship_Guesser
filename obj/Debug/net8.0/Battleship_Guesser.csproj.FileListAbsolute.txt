@@ -1,0 +1,14 @@
+/home/isaac/Documents/BYUI/2025/CSE_310_Applied_Programming/Battleship_Guesser/bin/Debug/net8.0/Battleship_Guesser
+/home/isaac/Documents/BYUI/2025/CSE_310_Applied_Programming/Battleship_Guesser/bin/Debug/net8.0/Battleship_Guesser.deps.json
+/home/isaac/Documents/BYUI/2025/CSE_310_Applied_Programming/Battleship_Guesser/bin/Debug/net8.0/Battleship_Guesser.runtimeconfig.json
+/home/isaac/Documents/BYUI/2025/CSE_310_Applied_Programming/Battleship_Guesser/bin/Debug/net8.0/Battleship_Guesser.dll
+/home/isaac/Documents/BYUI/2025/CSE_310_Applied_Programming/Battleship_Guesser/bin/Debug/net8.0/Battleship_Guesser.pdb
+/home/isaac/Documents/BYUI/2025/CSE_310_Applied_Programming/Battleship_Guesser/obj/Debug/net8.0/Battleship_Guesser.GeneratedMSBuildEditorConfig.editorconfig
+/home/isaac/Documents/BYUI/2025/CSE_310_Applied_Programming/Battleship_Guesser/obj/Debug/net8.0/Battleship_Guesser.AssemblyInfoInputs.cache
+/home/isaac/Documents/BYUI/2025/CSE_310_Applied_Programming/Battleship_Guesser/obj/Debug/net8.0/Battleship_Guesser.AssemblyInfo.cs
+/home/isaac/Documents/BYUI/2025/CSE_310_Applied_Programming/Battleship_Guesser/obj/Debug/net8.0/Battleship_Guesser.csproj.CoreCompileInputs.cache
+/home/isaac/Documents/BYUI/2025/CSE_310_Applied_Programming/Battleship_Guesser/obj/Debug/net8.0/Battleship_Guesser.dll
+/home/isaac/Documents/BYUI/2025/CSE_310_Applied_Programming/Battleship_Guesser/obj/Debug/net8.0/refint/Battleship_Guesser.dll
+/home/isaac/Documents/BYUI/2025/CSE_310_Applied_Programming/Battleship_Guesser/obj/Debug/net8.0/Battleship_Guesser.pdb
+/home/isaac/Documents/BYUI/2025/CSE_310_Applied_Programming/Battleship_Guesser/obj/Debug/net8.0/Battleship_Guesser.genruntimeconfig.cache
+/home/isaac/Documents/BYUI/2025/CSE_310_Applied_Programming/Battleship_Guesser/obj/Debug/net8.0/ref/Battleship_Guesser.dll
