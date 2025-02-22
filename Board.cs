@@ -5,6 +5,11 @@ public class Board
     private Cell[,] cells = new Cell[10, 10];
     private string[] letters = {"A", "B", "C", "D", "E", "F", "G", "H", "I", "J"};
 
+    public Cell[,] GetCells()
+    {
+        return cells;
+    }
+
     public Cell[,] CreateBoard()
     {
         for (int i = 0; i < 10; i++)

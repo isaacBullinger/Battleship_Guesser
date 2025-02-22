@@ -35,9 +35,20 @@ public class Guess
         return _point;
     }
 
-    public void LoadGuessCoords()
+    public void LoadGuessCoords(Board board)
     {
-        
+        Cell [,] cells = board.GetCells();
+
+        for (int i = 0; i < 10; i++)
+        {
+            for (int j = 0; j < 10; j++)
+            {
+                if (cells[i, j].GetIndicator() != ' ')
+                {
+                    guessedPoints.Add(new Point(i, j));
+                }
+            }
+        }
     }
 
     public void DisplayCoords()
@@ -94,6 +105,7 @@ public class Guess
             3 => 2,
             _ => _direction
         };
+        Console.WriteLine(_direction);
     }
 
     public Point CheckDirection()

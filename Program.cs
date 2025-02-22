@@ -15,7 +15,7 @@ class Program
         {
             int hit_count = 0;
             Guess guess = new Guess();
-            guess.LoadGuessCoords();
+            guess.LoadGuessCoords(board);
             Console.WriteLine("Guess set");
 
             guess.CheckerboardGuess();
@@ -57,10 +57,11 @@ class Program
                             {
                                 guess.SetPoint(anchor);
                                 guess.ChangeDirection();
+                                guess.IncrementDirection();
                                 Console.WriteLine("Direction switched");
                             }
 
-                            if (hit_count > 1 && hit)
+                            if (hit_count > 1)
                             {
                                 sunk = board.CheckHit("Was ship sunk? (y/n)");
                             }
