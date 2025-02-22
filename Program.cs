@@ -53,12 +53,15 @@ class Program
                             hit = board.CheckHit("3 Was it a hit? (y/n) ", point);
                             board.ReturnCells();
 
-                            if (!hit)
+                            if (!hit || guess.CheckGuess(guess.CheckDirection()))
                             {
                                 guess.SetPoint(anchor);
                                 guess.ChangeDirection();
-                                guess.IncrementDirection();
                                 Console.WriteLine("Direction switched");
+                            }
+                            else
+                            {
+                                hit_count++;
                             }
 
                             if (hit_count > 1)
