@@ -6,12 +6,10 @@ using System.Reflection;
 public class Cell
 {
     private char _indicator;
-    private Status _status;
 
     public Cell()
     {
         _indicator = ' ';
-        _status = Status.Empty;
     }
 
     public char GetIndicator()
@@ -22,15 +20,5 @@ public class Cell
     public void SetIndicator(char indicator)
     {
         _indicator = indicator;
-    }
-
-    public Status GetStatus()
-    {
-        return _status;
-    }
-
-    public void SetStatus(Status status)
-    {
-        _status = status;
     }
 }

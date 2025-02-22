@@ -5,53 +5,73 @@ class Program
 {
     static void Main(string[] args)
     {
-
-        Cell[,] cells = new Cell[10, 10];
         Board board = new Board();
-        Guess guess = new Guess();
         Point point;
+        int sunk_count = 0;
 
-        board.CreateBoard(cells);
-        bool all_sunk = false;
+        board.CreateBoard();
 
-        while (all_sunk == false)
+        while (sunk_count < 5)
         {
-            bool hit = false;
-            bool sunk = false;
+            int hit_count = 0;
+            Guess guess = new Guess();
+            Console.WriteLine("Guess set");
 
-            point = guess.CheckerboardGuess();
-            
-            if (cells[point.X, point.Y].GetIndicator() == ' ')
+            guess.CheckerboardGuess();
+            guess.DisplayCoords();
+            point = guess.GetPoint();
+
+            bool hit = board.CheckHit("1 Was it a hit? (y/n) ", point);
+            board.ReturnCells();
+
+            if (hit)
             {
-                hit = board.CheckHit("Was it a hit? (y/n) ");
+                hit_count++;
+                Point anchor = guess.GetPoint();
+                bool sunk = false;
 
-                while (hit)
+                while (hit_count >= 1 && !sunk)
                 {
-                    if (hit && !sunk)
-                    {
-                        cells[point.X, point.Y].SetIndicator('H');
-                        sunk = board.CheckHit("Was it sunk? (y/n) ");
-                        if (!sunk)
-                        {
-                            point = guess.DirectionGuess(point);
-                        }
-                        else
-                        {
-                            point = guess.CheckerboardGuess();
-                        }
-                    }
-                    else
-                    {
-                        cells[point.X, point.Y].SetIndicator('~');
-                        point = guess.CheckerboardGuess();
-                    }
+                    guess.GuessDirection();
+                    guess.DisplayCoords();
+                    point = guess.GetPoint();
+                    hit = board.CheckHit("2 Was it a hit? (y/n) ", point);
+                    board.ReturnCells();
 
-                    hit = board.CheckHit("Was it a hit? (y/n) ");
+                    if (hit)
+                    {
+                        hit_count++;
+
+                        while (!sunk)
+                        {
+                            guess.IncrementDirection();
+                            guess.DisplayCoords();
+                            point = guess.GetPoint();
+
+                            hit = board.CheckHit("3 Was it a hit? (y/n) ", point);
+                            board.ReturnCells();
+
+                            if (!hit)
+                            {
+                                guess.SetPoint(anchor);
+                                guess.ChangeDirection();
+                                Console.WriteLine("Direction switched");
+                            }
+
+                            if (hit_count > 1 && hit)
+                            {
+                                sunk = board.CheckHit("Was ship sunk? (y/n)");
+                            }
+
+                            if (sunk)
+                            {
+                                sunk_count++;
+                                hit_count = 0;
+                            }
+                        }
+                    }
                 }
             }
-
-            board.ReturnCells(cells);
-            all_sunk = board.CheckHit("Are all ships sunk? (y/n) ");
         }
     }
 }
