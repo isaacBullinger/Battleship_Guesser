@@ -6,28 +6,67 @@ class Program
     static void Main(string[] args)
     {
         Board board = new Board();
+
+        Console.WriteLine("Welcome to the Battleship Guesser!");
+        char user_input = ' ';
+
+        // Allows user to choose to load a previously saved board.
+        while (char.ToLower(user_input) != 'y' && char.ToLower(user_input) != 'n')
+        {
+            Console.WriteLine("Would you like to load your previous game? (y/n)");
+            user_input = Console.ReadKey().KeyChar;
+            Console.WriteLine();
+            if (user_input == 'y')
+            {
+                board.LoadBoard("/tmp/board.txt");
+                board.ReturnCells();
+            }
+            else if (user_input == 'n')
+            {
+                board = new Board();
+                board.CreateBoard();
+            }
+            else
+            {
+                Console.WriteLine("Please type 'y' or 'n'.");
+            }
+        }
+
         Point point;
         int sunk_count = 0;
 
-        board.CreateBoard();
-
+        // This loop runs until all 5 ships are sunk
         while (sunk_count < 5)
         {
             int hit_count = 0;
+            // Creates a new Guess class, then loads previous
+            // guesses to prevent guessing the same location
             Guess guess = new Guess();
             guess.LoadGuessCoords(board);
-            Console.WriteLine("Guess set");
 
+            // Generates a random guess in a checkerboard pattern
             guess.CheckerboardGuess();
+            // Displays guess coordinates for the user to
+            // determine if the coordinate was a hit or miss
             guess.DisplayCoords();
+            // Loads point for hit check
             point = guess.GetPoint();
 
-            bool hit = board.CheckHit("1 Was it a hit? (y/n) ", point);
+            // Checks for hit using the guess
+            bool hit = board.CheckHit("Was it a hit? (y/n) ", point);
+            Console.WriteLine();
+            // Displays the board to the user
             board.ReturnCells();
 
+            // If there is a hit, change guessing
+            // behavior to finding direction of the ship
             if (hit)
             {
                 hit_count++;
+                // Anchor is the first hit location
+                // It is used to determine the direction
+                // and switch the direction if the ship
+                // is not sunk
                 Point anchor = guess.GetPoint();
                 bool sunk = false;
 
@@ -37,42 +76,52 @@ class Program
                     guess.IncrementDirection();
                     guess.DisplayCoords();
                     point = guess.GetPoint();
-                    hit = board.CheckHit("2 Was it a hit? (y/n) ", point);
+                    hit = board.CheckHit("Was it a hit? (y/n) ", point);
+                    Console.WriteLine();
+                    // Save after each guess
+                    board.SaveBoard("/tmp/board.txt");
                     board.ReturnCells();
 
+                    // If a second hit is confirmed change 
+                    // guessing behavior to guess in a line
                     if (hit)
                     {
                         hit_count++;
 
                         while (!sunk)
                         {
-                            guess.IncrementDirection();
-                            guess.DisplayCoords();
-                            point = guess.GetPoint();
-
-                            hit = board.CheckHit("3 Was it a hit? (y/n) ", point);
-                            board.ReturnCells();
-
-                            if (!hit || guess.CheckGuess(guess.CheckDirection()))
-                            {
-                                guess.SetPoint(anchor);
-                                guess.ChangeDirection();
-                                Console.WriteLine("Direction switched");
-                            }
-                            else
-                            {
-                                hit_count++;
-                            }
-
-                            if (hit_count > 1)
+                            if (hit_count >= 2)
                             {
                                 sunk = board.CheckHit("Was ship sunk? (y/n)");
+                                Console.WriteLine();
                             }
 
                             if (sunk)
                             {
                                 sunk_count++;
                                 hit_count = 0;
+                            }
+
+                            if (hit)
+                            {
+                                hit_count++;
+                            }
+
+                            // Move in the determined direction 1 tile
+                            guess.IncrementDirection();
+                            guess.DisplayCoords();
+                            point = guess.GetPoint();
+
+                            hit = board.CheckHit("Was it a hit? (y/n) ", point);
+                            Console.WriteLine();
+                            board.SaveBoard("/tmp/board.txt");
+                            board.ReturnCells();
+
+                            // Switch direction if an end if found or a wall is hit
+                            if (!hit || guess.CheckGuess(guess.CheckDirection()))
+                            {
+                                guess.SetPoint(anchor);
+                                guess.ChangeDirection();
                             }
                         }
                     }

@@ -25,6 +25,7 @@ public class Guess
         { 9, 'J' }
     };
 
+    // Getters and setters
     public void SetPoint(Point point)
     {
         _point = point;
@@ -35,6 +36,7 @@ public class Guess
         return _point;
     }
 
+    // Loads previously guessed coordinates to prevent guessing in the same location
     public void LoadGuessCoords(Board board)
     {
         Cell [,] cells = board.GetCells();
@@ -51,11 +53,13 @@ public class Guess
         }
     }
 
+    // Displays guess coordinates to the user
     public void DisplayCoords()
     {
         Console.WriteLine($"{letters[_point.X]}{_point.Y}");
     }
     
+    // Returns locations in a checkerboard pattern
     public void CheckerboardGuess()
     {
         int x;
@@ -73,16 +77,16 @@ public class Guess
         guessedPoints.Add(_point);
     }
 
+    // Guesses a random direction, and removes invalid directions
     public void GuessDirection()
     {
-        Console.WriteLine(string.Join(", ", _directions));
         while (_directions.Count > 0)
         {
             int index = random.Next(_directions.Count);
             _direction = _directions[index];
 
             Point newPoint = CheckDirection();
-            if (!CheckGuess(newPoint)) // Ensure the point is not guessed or out of bounds
+            if (!CheckGuess(newPoint))
             {
                 _directions.RemoveAt(index);
                 guessedPoints.Add(newPoint);
@@ -90,11 +94,12 @@ public class Guess
             }
             else
             {
-                _directions.RemoveAt(index); // Remove invalid direction
+                _directions.RemoveAt(index);
             }
         }        
     }
 
+    // Switches to opposite direction
     public void ChangeDirection()
     {
         _direction = _direction switch
@@ -108,6 +113,7 @@ public class Guess
         Console.WriteLine(_direction);
     }
 
+    // Checks if the point in the given direction is valid
     public Point CheckDirection()
     {
         int x = _point.X;
@@ -126,6 +132,7 @@ public class Guess
         return newPoint;
     }
 
+    // Moves 1 tile in the given direction
     public void IncrementDirection()
     {
         int x = _point.X;
@@ -141,6 +148,7 @@ public class Guess
         };
     }
 
+    // Checks for invalid guesses
     public bool CheckGuess(Point point)
     {
         return guessedPoints.Contains(point) || point.X < 0 || point.X > 9 || point.Y < 0 || point.Y > 9;
