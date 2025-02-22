@@ -15,6 +15,7 @@ class Program
         {
             int hit_count = 0;
             Guess guess = new Guess();
+            guess.LoadGuessCoords();
             Console.WriteLine("Guess set");
 
             guess.CheckerboardGuess();
@@ -33,6 +34,7 @@ class Program
                 while (hit_count >= 1 && !sunk)
                 {
                     guess.GuessDirection();
+                    guess.IncrementDirection();
                     guess.DisplayCoords();
                     point = guess.GetPoint();
                     hit = board.CheckHit("2 Was it a hit? (y/n) ", point);
@@ -69,6 +71,10 @@ class Program
                                 hit_count = 0;
                             }
                         }
+                    }
+                    else
+                    {
+                        guess.SetPoint(anchor);
                     }
                 }
             }

@@ -35,6 +35,11 @@ public class Guess
         return _point;
     }
 
+    public void LoadGuessCoords()
+    {
+        
+    }
+
     public void DisplayCoords()
     {
         Console.WriteLine($"{letters[_point.X]}{_point.Y}");
@@ -60,10 +65,23 @@ public class Guess
     public void GuessDirection()
     {
         Console.WriteLine(string.Join(", ", _directions));
+        while (_directions.Count > 0)
+        {
+            int index = random.Next(_directions.Count);
+            _direction = _directions[index];
 
-        int index = random.Next(_directions.Count());
-
-        _direction = _directions[index];
+            Point newPoint = CheckDirection();
+            if (!CheckGuess(newPoint)) // Ensure the point is not guessed or out of bounds
+            {
+                _directions.RemoveAt(index);
+                guessedPoints.Add(newPoint);
+                return;
+            }
+            else
+            {
+                _directions.RemoveAt(index); // Remove invalid direction
+            }
+        }        
     }
 
     public void ChangeDirection()
@@ -84,18 +102,14 @@ public class Guess
         int y = _point.Y;
         Point newPoint;
 
-        do
+        newPoint = _direction switch
         {
-            newPoint = _direction switch
-            {
-                0 => new Point(x + 1, y),
-                1 => new Point(x - 1, y),
-                2 => new Point(x, y + 1),
-                3 => new Point(x, y - 1),
-                _ => _point
-            };
-        }
-        while (CheckGuess(newPoint));
+            0 => new Point(x + 1, y),
+            1 => new Point(x - 1, y),
+            2 => new Point(x, y + 1),
+            3 => new Point(x, y - 1),
+            _ => _point
+        };
 
         return newPoint;
     }
