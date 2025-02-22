@@ -6,6 +6,8 @@ class Program
     static void Main(string[] args)
     {
         Board board = new Board();
+        // Change to your filepath, on Windows change to board.txt
+        string boardFile = "/tmp/board.txt";
 
         Console.WriteLine("Welcome to the Battleship Guesser!");
         char user_input = ' ';
@@ -18,7 +20,7 @@ class Program
             Console.WriteLine();
             if (user_input == 'y')
             {
-                board.LoadBoard("/tmp/board.txt");
+                board.LoadBoard(boardFile);
                 board.ReturnCells();
             }
             else if (user_input == 'n')
@@ -79,7 +81,7 @@ class Program
                     hit = board.CheckHit("Was it a hit? (y/n) ", point);
                     Console.WriteLine();
                     // Save after each guess
-                    board.SaveBoard("/tmp/board.txt");
+                    board.SaveBoard(boardFile);
                     board.ReturnCells();
 
                     // If a second hit is confirmed change 
@@ -114,7 +116,7 @@ class Program
 
                             hit = board.CheckHit("Was it a hit? (y/n) ", point);
                             Console.WriteLine();
-                            board.SaveBoard("/tmp/board.txt");
+                            board.SaveBoard(boardFile);
                             board.ReturnCells();
 
                             // Switch direction if an end if found or a wall is hit
@@ -132,5 +134,7 @@ class Program
                 }
             }
         }
+
+        Console.WriteLine("You guessed all of the ships!");
     }
 }

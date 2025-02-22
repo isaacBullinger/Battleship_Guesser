@@ -110,7 +110,7 @@ public class Guess
             3 => 2,
             _ => _direction
         };
-        Console.WriteLine(_direction);
+        // Console.WriteLine(_direction);
     }
 
     // Checks if the point in the given direction is valid

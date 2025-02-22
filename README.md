@@ -4,9 +4,11 @@ I wrote a Battleship guesser program. This helps the user to guess the locations
 
 My purpose for writing this software is to learn the C# programming language. I wanted to learn how to program with classes and create something complex.
 
+To setup the game, make sure you change boardFile in Program.cs on line 10 to a filepath that works for you.
+
 {Provide a link to your YouTube demonstration. It should be a 4-5 minute demo of the software running and a walkthrough of the code. Focus should be on sharing what you learned about the language syntax.}
 
-[Software Demo Video](http://youtube.link.goes.here)
+[Battleship Guesser](https://youtu.be/1dItAMpk5Zs)
 
 # Development Environment
 
