@@ -72,8 +72,13 @@ class Program
                 Point anchor = guess.GetPoint();
                 bool sunk = false;
 
-                while (hit_count >= 1 && !sunk)
+                while (hit_count >= 1)
                 {
+                    if (sunk)
+                    {
+                        break;
+                    }
+
                     guess.GuessDirection();
                     guess.IncrementDirection();
                     guess.DisplayCoords();
@@ -92,21 +97,21 @@ class Program
 
                         while (!sunk)
                         {
-                            if (hit_count >= 2)
-                            {
-                                sunk = board.CheckHit("Was ship sunk? (y/n)");
-                                Console.WriteLine();
-                            }
-
-                            if (sunk)
-                            {
-                                sunk_count++;
-                                hit_count = 0;
-                            }
-
                             if (hit)
                             {
                                 hit_count++;
+
+                                if (hit_count >= 2)
+                                {
+                                    sunk = board.CheckHit("Was ship sunk? (y/n)");
+                                    Console.WriteLine();
+                                    if (sunk)
+                                    {
+                                        sunk_count++;
+                                        hit_count = 0;
+                                        break;
+                                    }
+                                }
                             }
 
                             // Move in the determined direction 1 tile

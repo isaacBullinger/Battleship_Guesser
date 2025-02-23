@@ -12,7 +12,6 @@ To setup the game, make sure you change boardFile in Program.cs on line 10 to a 
 
 I used Visual Studio Code with the NeoVim extension, and the Bash terminal to view the saved files.
 
-{Describe the programming language that you used and any libraries.}
 I used C#, an object oriented language. I used System.IO for reading and writing files. I also used System.Drawing library for the Point structure. For lists and hash sets I used System.Collections.Generic.
 
 # Useful Websites
