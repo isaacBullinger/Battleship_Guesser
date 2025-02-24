@@ -13,7 +13,7 @@ using System.Reflection;
 [assembly: System.Reflection.AssemblyCompanyAttribute("Battleship_Guesser")]
 [assembly: System.Reflection.AssemblyConfigurationAttribute("Debug")]
 [assembly: System.Reflection.AssemblyFileVersionAttribute("1.0.0.0")]
-[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+ddb5a12c62174292082c814fa14dfeae626dc29d")]
+[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+4c5f6d084bb469c49bd3a1bcf2a28b9c615474db")]
 [assembly: System.Reflection.AssemblyProductAttribute("Battleship_Guesser")]
 [assembly: System.Reflection.AssemblyTitleAttribute("Battleship_Guesser")]
 [assembly: System.Reflection.AssemblyVersionAttribute("1.0.0.0")]

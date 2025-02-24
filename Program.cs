@@ -27,6 +27,7 @@ class Program
             {
                 board = new Board();
                 board.CreateBoard();
+                Console.Clear();
             }
             else
             {
@@ -56,7 +57,7 @@ class Program
 
             // Checks for hit using the guess
             bool hit = board.CheckHit("Was it a hit? (y/n) ", point);
-            Console.WriteLine();
+            Console.Clear();
             // Displays the board to the user
             board.ReturnCells();
 
@@ -84,7 +85,7 @@ class Program
                     guess.DisplayCoords();
                     point = guess.GetPoint();
                     hit = board.CheckHit("Was it a hit? (y/n) ", point);
-                    Console.WriteLine();
+                    Console.Clear();
                     // Save after each guess
                     board.SaveBoard(boardFile);
                     board.ReturnCells();
@@ -120,7 +121,7 @@ class Program
                             point = guess.GetPoint();
 
                             hit = board.CheckHit("Was it a hit? (y/n) ", point);
-                            Console.WriteLine();
+                            Console.Clear();
                             board.SaveBoard(boardFile);
                             board.ReturnCells();
 
