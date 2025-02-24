@@ -1,6 +1,6 @@
 # Overview
 
-I wrote a Battleship guesser program. This helps the user to guess the locations of enemy ships. It uses an algorithm that guesses randomly in a checkerboard pattern until it finds a ship. Then it tries to guess the direction of the ship by guessing random directions. When the direction is found, it guesses in that direction until the ship is sunk or it hits a boundary or previously guessed coordinate. After the ship is sunk it goes back to guessing in the checkerboard pattern. I also implemented saving and loading boards from a text file.
+I wrote a Battleship guesser program in C#. This helps the user to guess the locations of enemy ships. It uses an algorithm that guesses randomly in a checkerboard pattern until it finds a ship. Then it tries to guess the direction of the ship by guessing random directions. When the direction is found, it guesses in that direction until the ship is sunk or it hits a boundary or previously guessed coordinate. After the ship is sunk it goes back to guessing in the checkerboard pattern. I also implemented saving and loading boards from a text file.
 
 My purpose for writing this software is to learn the C# programming language. I wanted to learn how to program with classes and create something complex.
 
